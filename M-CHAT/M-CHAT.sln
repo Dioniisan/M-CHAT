@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M-CHAT", "M-CHAT\M-CHAT.csproj", "{548CD1DF-783E-4EBE-8846-B8BB3369C46B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M-CHAT", "M-CHAT\M-CHAT.csproj", "{548CD1DF-783E-4EBE-8846-B8BB3369C46B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M-CHAT.Models", "..\M-CHAT.Models\M-CHAT.Models.csproj", "{90CC43A4-DCA9-4C4B-AE4C-5DB46796A0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M-CHAT.Models", "..\M-CHAT.Models\M-CHAT.Models.csproj", "{90CC43A4-DCA9-4C4B-AE4C-5DB46796A0FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M-CHAT.Services", "..\M-CHAT.Services\M-CHAT.Services.csproj", "{137E6C7B-B175-4E37-9B04-D98259C5026C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M-CHAT.Services", "..\M-CHAT.Services\M-CHAT.Services.csproj", "{137E6C7B-B175-4E37-9B04-D98259C5026C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

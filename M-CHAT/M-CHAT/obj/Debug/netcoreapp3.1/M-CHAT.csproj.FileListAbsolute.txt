@@ -38,3 +38,6 @@ C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\M-CHAT.c
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\Registro.cshtml.g.cs
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\Test.cshtml.g.cs
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\Resultados.cshtml.g.cs
+C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\Registrarse.cshtml.g.cs
+C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\Sesion.cshtml.g.cs
+C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\SesionDetails.cshtml.g.cs

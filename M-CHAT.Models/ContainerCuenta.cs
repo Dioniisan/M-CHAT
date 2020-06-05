@@ -8,5 +8,6 @@ namespace M_CHAT.Models
     {
         public int Id_Cuenta { get; set; }
         public string Correo { get; set; }
+        public string Pass { get; set; }
     }
 }

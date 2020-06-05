@@ -1,0 +1,69 @@
+﻿@page
+@model M_CHAT.Pages.Index1Model
+@{
+}
+
+<h1>Informacion de la cuenta</h1>
+<p>
+    Vea la informacion de su usuario como tutor y la de los niños registrados en su cuenta. Seleccione un niño para Comenzar un test o para Ver el resultado.
+    Asimismo tambien puede registrar un niño desde aqui.
+</p>
+@*<div class="d-flex justify-content-end">
+    <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
+</div>
+<div class="d-flex justify-content-end">
+    <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
+</div>*@
+<p>
+    <div class="card" style="width: 69.9rem;">
+        <div class="card-header">
+            Datos del tutor
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="ControlInput1">Nombre</label>
+                    <input type="text" class="form-control" id="ControlInput1" placeholder="Escriba su nombre">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="ControlInput2">Direccion</label>
+                    <input type="text" class="form-control" id="ControlInput2" placeholder="Calle 01 #234 x 56 y 57">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="ControlInput3">Correo Electronico</label>
+                    <input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">
+                </div>
+            </li>
+        </ul>
+    </div>
+</p>
+<br />
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Nombre del niño</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Centro Educativo</h6>
+            <p class="card-text">
+                <ul>
+                    <li>
+                        CURP
+                    </li>
+                    <li>
+                        Nacionalidad
+                    </li>
+                    <li>
+                        Genero
+                    </li>
+                </ul>
+            </p>
+            <div class="d-flex justify-content-center">
+                <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
+            </div>
+        </div>
+    </div>

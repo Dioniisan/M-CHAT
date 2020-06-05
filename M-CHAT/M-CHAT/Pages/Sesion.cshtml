@@ -1,0 +1,30 @@
+﻿@page
+@model M_CHAT.Pages.SesionModel
+@{
+}
+
+<h1>Iniciar Sesion</h1>
+<p>
+    <div class="card" style="width: 30rem;">
+        <div class="card-header">
+            Datos del tutor
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="ControlInput3">Correo Electronico</label>
+                    <input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="ControlInput2">Contraseña</label>
+                    <input type="text" class="form-control" id="ControlInput2" placeholder="°°°°°°°°">
+                    <br />
+                    <div class="d-flex justify-content-end">
+                        <a asp-page="/SesionDetails" class="btn btn-outline-success m-1">Iniciar Sesion</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
