@@ -6,7 +6,7 @@ namespace M_CHAT.Models
 {
     public class ContainerCentroS
     {
-        public int Id_Centro { get; set; }
+        public int CentroID { get; set; }
         public string Telefono { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }

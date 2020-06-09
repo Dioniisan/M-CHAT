@@ -6,7 +6,7 @@ namespace M_CHAT.Models
 {
     class ContainerPlantilla
     {
-        public int Id_Plantilla { get; set; }
+        public int PlantillaID { get; set; }
         public int Version { get; set; }
     }
 }

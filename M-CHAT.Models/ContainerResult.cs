@@ -6,6 +6,6 @@ namespace M_CHAT.Models
 {
     class ContainerResult
     {
-        public int Id_Resultado { get; set; }
+        public int ResultadoID { get; set; }
     }
 }
