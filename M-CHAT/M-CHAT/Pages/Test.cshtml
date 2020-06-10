@@ -3,14 +3,14 @@
 @{
 }
 
-<h1>Test</h1>
+<h1 class="text-dark">Test</h1>
 <div class="d-flex justify-content-end">
     <a asp-page="/Index" class="btn btn-danger m-1">Cancelar</a>
     <a asp-page="/Resultados" class="btn btn-success m-1">Resultados></a>
 
 </div>
 <br />
-<p>
+<p class="text-dark">
     Este cuestionario consta de 23 preguntas, subdivididas internamente en las categorias de normales o criticos. Se considera que un niño
     falla en el cuestionario si falla en 2 o más preguntas criticas o si falla 3 preguntas cualesquiera.
 </p>
@@ -19,232 +19,413 @@
     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 <hr />
-<p>
-    <div class="card" style="width: 69.9rem;">
-        <div class="card-header">
-            Test
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="0">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="11"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="12"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="13"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="14"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="15"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="16"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="17"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="18"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="19"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="20"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="21"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="22"></li>
+
+
+    </ol>
+
+    @*En esta parte seria conveniente utilizar un foreach? seeeeh, definitivamente debo cambiar esto, será mas comodo*@
+
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250"/>
+            <text class="centered">¿Disfruta su hijo cuando se le balancea o se le hace saltar sobre sus rodillas?</text>
+            <div class="carousel-caption d-none d-md-block">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-success">
+                        <input type="radio" name="opcion" id="opcion1" /> Si
+                    </label>
+                    <label class="btn btn-danger">
+                        <input type="radio" name="opcion" id="opcion2" /> No
+                    </label>
+                </div>
+            </div>
         </div>
-        <table class="table table-success">
-            <thead>
-                <tr>
-                    <td>
-                        Pregunta
-                    </td>
-                    <td>
-                        Si
-                    </td>
-                    <td>
-                        No
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        1.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        3.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        4.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        5.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        6.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        7.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        8.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        9.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        10.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        11.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        12.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        13.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        14.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        15.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        16.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        17.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        18.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        19.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        20.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        21.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        22.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        23.-
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </thead>
-        </table>
     </div>
-</p>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Muestra interés por otros niños o niñas?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Le gusta subirse a las cosas, como sillones, escalones, juegos del parque?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Le gusta que el adulto juegue con él o ella al “cucú-tras” (taparse los ojos y luego descubrirlos; jugar a esconderse y aparecer de repente)?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Alguna vez hace juegos imaginativos, por ejemplo haciendo como si hablara por teléfono, como si estuviera dando de comer a una muñeca, como si estuviera conduciendo un coche o cosas así?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Suele señalar con el dedo para pedir algo?	</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Suele señalar con el dedo para indicar que algo le llama la atención?	</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Puede jugar adecuadamente con piezas o juguetes pequeños (por ejemplo cochecitos, muñequitos o bloques de construcción) sin únicamente chuparlos, agitarlos o tirarlos?	</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Suele traerle objetos para enseñárselos?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Suele mirarle a los ojos durante unos segundos?	</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Le parece demasiado sensible a ruidos poco intensos? (por ejemplo, reacciona tapándose los oídos, etc.)	</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Sonríe al verle a usted o cuando usted le sonríe?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Puede imitar o repetir gestos o acciones que usted hace? (por ejemplo, si usted hace una mueca él o ella también la hace)</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Responde cuando se le llama por su nombre?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">Si usted señala con el dedo un juguete al otro lado de la habitación… ¿Dirige su hijo o hija la mirada hacia ese juguete?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Ha aprendido ya a andar?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">Si usted está mirando algo atentamente, ¿su hijo o hija se pone también a mirarlo?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Hace su hijo o hija movimientos raros con los dedos, por ejemplo, acercándoselos a los ojos?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Intenta que usted preste atención a las actividades que él o ella está haciendo?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Alguna vez ha pensado que su hijo o hija podría tener sordera?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Entiende su hijo o hija lo que la gente dice?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">¿Se queda a veces mirando al vacío o va de un lado al otro sin propósito?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="containerim">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_from_a_camera.jpg/1200px-Black_from_a_camera.jpg" width="1050" height="250" />
+            <text class="centered">Si su hijo o hija tiene que enfrentarse a una situación desconocida, ¿le mira primero a usted a la cara para saber cómo reaccionar?</text>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input type="radio" name="opcion" id="opcion1" /> Si
+                </label>
+                <label class="btn btn-danger">
+                    <input type="radio" name="opcion" id="opcion2" /> No
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+</div>
