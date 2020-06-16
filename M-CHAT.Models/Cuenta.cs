@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    class ContainerCuenta
+    public class Cuenta : BaseEntity
     {
         public int CuentaID { get; set; }
         public string Correo { get; set; }

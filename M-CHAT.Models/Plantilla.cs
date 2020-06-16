@@ -4,8 +4,9 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    class ContainerResult
+    class Plantilla
     {
-        public int ResultadoID { get; set; }
+        public int PlantillaID { get; set; }
+        public int Version { get; set; }
     }
 }

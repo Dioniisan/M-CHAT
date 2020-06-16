@@ -4,8 +4,8 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    class ContainerMapa
+    class Resultado
     {
-        public string Ubicacion { get; set; }
+        public int ResultadoID { get; set; }
     }
 }

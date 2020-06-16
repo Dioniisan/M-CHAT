@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using M_CHAT.Services;
+using M_CHAT.Models;
 
 namespace M_CHAT
 {
@@ -23,7 +26,18 @@ namespace M_CHAT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<AppDBContext>(option => {
+                option.UseSqlServer(Configuration.GetConnectionString("EFDbConnection"));
+            });
             services.AddRazorPages();
+            services.AddScoped<AppDBContext>();
+            services.AddScoped(typeof(IRepository<>), typeof(SQLRepository<>));
+            services.AddScoped<IContainerRepository, ContainerRepository>();
+            services.AddRouting(option => {
+                option.LowercaseUrls = true;
+                option.LowercaseQueryStrings = true;
+                option.AppendTrailingSlash = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

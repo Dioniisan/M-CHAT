@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 
 namespace M_CHAT.Models
 {
-    public class ContainerPregun
+    public class Cuestionario
     {
+        public int CuestionarioID { get; set; }
         public int PreguntaID { get; set; }
-        public string Texto { get; set; }
-        public string Valor { get; set; }
+        public bool Respuesta { get; set; }
     }
 }
