@@ -13,5 +13,10 @@ namespace M_CHAT.Services
         {
             return context.Set<Tutor>().AsEnumerable();
         }
+
+        public IEnumerable<Ninio> GetNinios()
+        {
+            return context.Set<Ninio>().AsEnumerable();
+        }
     }
 }

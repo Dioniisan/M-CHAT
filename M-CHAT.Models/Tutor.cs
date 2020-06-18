@@ -1,6 +1,6 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+using System.Collections.Generic;
 
 namespace M_CHAT.Models
 {
@@ -10,14 +10,10 @@ namespace M_CHAT.Models
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
-        public string Contrase { get; set; }
+        public string Contrasenia { get; set; }
 
-        //Referencias
-        [Display(Name = "Niño")]
-        [Required(ErrorMessage = "Informacion requerida en niño.")]
-        [ForeignKey("Ninio")]
-        public int? NinioID { get; set; }
-        public Ninio Ninio { get; set; }
+        //Navega
+        public ICollection<Ninio> Ninios { get; set; }
 
 
     }

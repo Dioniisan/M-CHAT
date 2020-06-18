@@ -7,7 +7,7 @@
 <div class="d-flex justify-content-end">
     <a asp-page="/Index" class="btn btn-danger m-1">Cancelar</a>
 </div>
-<p>
+<br />
     <div class="card" style="width: 69.9rem;">
         <div class="card-header">
             Datos del tutor
@@ -33,17 +33,28 @@
             </li>
         </ul>
     </div>
-</p>
-<p>
+<br />
+<script>
+    function mostrar() {
+        var checkBox = document.getElementById("chbox1");
+        // Get the output text
+        var mostrar = document.getElementById("Datos2");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            mostrar.style.display = "block";
+        } else {
+            mostrar.style.display = "none";
+        }
+    }
+</script>
     <div>
-        <input type="checkbox" id="chbox1" value="firstch" />
+        <input type="checkbox" id="chbox1" value="firstch" onclick="mostrar()" />
         <label for="chbox1">
             Quiero ingresar los datos de 1 niño como minimo.
         </label>
     </div>
-</p>
-<p>
-    <div class="flex-grow-1 p-2">
+    <div id="Datos2" class="flex-grow-1 p-2" style="display:none">
         <!--Nav tabs-->
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" role="presentation">
@@ -124,36 +135,48 @@
                         </label>
                     </div>
                 </div>
-                <div id="datosCEdu" class="tab-pane fade" role="tabpanel" aria-labelledby="containerws-tab">
-                    <div class="form-group row">
-                        <label for="ControlInput9" class="col-form-label col-sm-2">
-                            Clave:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput9" placeholder="Escriba la clave del Centro Educativo">
+                <div class="form-group row">
+                    <label for="ControlInput6" class="col-form-label col-sm-2">
+                        Foto del niño:
+                    </label>
+                    <div class="col-sm-10">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon03">
+                                <label class="custom-file-label" for="inputGroupFile03">Elija una imagen desde su equipo.</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="ControlInput10" class="col-form-label col-sm-2">
-                            Nombre:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput10" placeholder="Escriba el nombre del Centro Educativo">
-                        </div>
+                </div>
+            </div>
+            <div id="datosCEdu" class="tab-pane fade" role="tabpanel" aria-labelledby="containerws-tab">
+                <div class="form-group row">
+                    <label for="ControlInput9" class="col-form-label col-sm-2">
+                        Clave:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput9" placeholder="Escriba la clave del Centro Educativo">
                     </div>
-                    <div class="form-group row">
-                        <label for="ControlInput11" class="col-form-label col-sm-2">
-                            Direccion:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput11" placeholder="Calle 01 #234 x 56 y 57">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ControlInput10" class="col-form-label col-sm-2">
+                        Nombre:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput10" placeholder="Escriba el nombre del Centro Educativo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ControlInput11" class="col-form-label col-sm-2">
+                        Direccion:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput11" placeholder="Calle 01 #234 x 56 y 57">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</p>
 <div class="d-flex justify-content-end">
     <a asp-page="/SesionDetails" class="btn btn-success m-1">Registrarse</a>
 </div>

@@ -13,11 +13,7 @@ namespace M_CHAT.Models
         public string Direccion { get; set; }
         public string Clave { get; set; }
 
-        //Referencias
-        [Display(Name = "Niño")]
-        [Required(ErrorMessage = "Informacion requerida en niño.")]
-        [ForeignKey("Ninio")]
-        public int? NinioID { get; set; }
-        public Ninio Ninio { get; set; }
+        //Navega
+        public ICollection<Ninio> Ninios { get; set; }
     }
 }

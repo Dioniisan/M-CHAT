@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace M_CHAT.Services.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20200616025344_Initial-Migration")]
+    [Migration("20200618002223_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,10 +40,6 @@ namespace M_CHAT.Services.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NinioID")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
@@ -54,8 +50,6 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NinioID");
 
                     b.ToTable("CentrosE");
                 });
@@ -100,6 +94,10 @@ namespace M_CHAT.Services.Migrations
                     b.Property<string>("CURP")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CentroEID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
@@ -107,6 +105,9 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Fecha_nac")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Foto")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genero")
@@ -121,10 +122,18 @@ namespace M_CHAT.Services.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("TutorID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdatedAT")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CentroEID");
+
+                    b.HasIndex("TutorID");
 
                     b.ToTable("Ninios");
                 });
@@ -136,7 +145,7 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contrase")
+                    b.Property<string>("Contrasenia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
@@ -147,10 +156,6 @@ namespace M_CHAT.Services.Migrations
 
                     b.Property<string>("Direccion")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("NinioID")
-                        .IsRequired()
-                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
@@ -166,25 +171,20 @@ namespace M_CHAT.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NinioID");
-
                     b.ToTable("Tutores");
                 });
 
-            modelBuilder.Entity("M_CHAT.Models.CentroE", b =>
+            modelBuilder.Entity("M_CHAT.Models.Ninio", b =>
                 {
-                    b.HasOne("M_CHAT.Models.Ninio", "Ninio")
-                        .WithMany("CentrosE")
-                        .HasForeignKey("NinioID")
+                    b.HasOne("M_CHAT.Models.CentroE", "CentroE")
+                        .WithMany("Ninios")
+                        .HasForeignKey("CentroEID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("M_CHAT.Models.Tutor", b =>
-                {
-                    b.HasOne("M_CHAT.Models.Ninio", "Ninio")
-                        .WithMany("Tutors")
-                        .HasForeignKey("NinioID")
+                    b.HasOne("M_CHAT.Models.Tutor", "Tutor")
+                        .WithMany("Ninios")
+                        .HasForeignKey("TutorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
