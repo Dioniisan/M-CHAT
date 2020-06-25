@@ -15,6 +15,8 @@ namespace M_CHAT.Models
         //Navega
         public ICollection<Ninio> Ninios { get; set; }
 
+        public ICollection<Cuenta> Cuentas { get; set; }
+
 
     }
 }

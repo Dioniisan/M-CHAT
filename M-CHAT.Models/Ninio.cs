@@ -8,13 +8,13 @@ namespace M_CHAT.Models
 {
     public class Ninio : BaseEntity
     {
-        public int NinioID { get; set; }
         public string Nom_Comp { get; set; }
         public string CURP { get; set; }
         public string Fecha_nac { get; set; }
         public int Edad { get; set; }
         public string Genero { get; set; }
         public string Foto { get; set; }
+        public string Nacionalidad { get; set; }
 
         //Referencias
         [Display(Name = "Tutor")]
@@ -28,6 +28,9 @@ namespace M_CHAT.Models
         [ForeignKey("CentroE")]
         public int? CentroEID { get; set; }
         public CentroE CentroE { get; set; }
+
+        //Navega
+        ///Respuesta
 
     }
 }

@@ -14,21 +14,16 @@ namespace M_CHAT.Pages
     {
         private readonly IContainerRepository repository;
         public Tutor Tutor { get; private set; }
-        public SelectList Ninios { get; private set; }
-        //public EditModel(IContainerRepository repository)
-        //{
-        //    this.repository = repository;
-        //}
+        public Ninio Ninio { get; private set; }
+        public CentroE CentroE { get; private set; }
+        public RegistroModel(IContainerRepository repository)
+        {
+            this.repository = repository;
+        }
         public IActionResult OnGet(int id)
         {
             Tutor = repository.Get(id);
-            if (Tutor.Id == 0)
-                return RedirectToPage("/NotFound");
-            Ninios = new SelectList(repository.GetNinios(), nameof(Ninio.Id), nameof(Ninio.Nom_Comp));
-            return Page();
-        }
-        public void OnGet()
-        {
+
         }
     }
 }

@@ -9,5 +9,9 @@ namespace M_CHAT.Models
         public int CuentaID { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
+
+        //Referencias
+        ///Tutor
+        ///Administrador
     }
 }

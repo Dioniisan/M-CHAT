@@ -12,7 +12,7 @@
     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 <hr />
-
+@*<h3>@Model.Ninios.Count()</h3>*@
     <div class="card" style="width: 69.9rem;">
         <div class="card-header">
             Datos del tutor
@@ -20,19 +20,19 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="ControlInput1">Nombre</label>
+                    <label for="ControlInput1" asp-for="Tutor.Nombre"></label>
                     <input type="text" class="form-control" id="ControlInput1" placeholder="Escriba su nombre">
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="ControlInput2">Direccion</label>
+                    <label for="ControlInput2" asp-for="Tutor.Direccion"></label>
                     <input type="text" class="form-control" id="ControlInput2" placeholder="Calle 01 #234 x 56 y 57">
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="ControlInput3">Correo Electronico</label>
+                    <label for="ControlInput3" asp-for="Tutor.Correo"></label>
                     <input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">
                 </div>
             </li>
@@ -58,7 +58,7 @@
         <div class="tab-content">
             <div id="datosInfante" class="tab-pane fade show active" role="tabpanel" aria-labelledby="datosInfante-tab">
                 <div class="form-group row">
-                    <label for="ControlInput4" class="col-form-label col-sm-2">
+                    <label for="ControlInput4" class="col-form-label col-sm-2" asp-for="Ninio.Nom_Comp">
                         Nombre Completo:
                     </label>
                     <div class="col-sm-10">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput5" class="col-form-label col-sm-2">
+                    <label for="ControlInput5" class="col-form-label col-sm-2" asp-for="Ninio.CURP">
                         CURP:
                     </label>
                     <div class="col-sm-10">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput6" class="col-form-label col-sm-2">
+                    <label for="ControlInput6" class="col-form-label col-sm-2" asp-for="Ninio.Nacionalidad">
                         Nacionalidad:
                     </label>
                     <div class="form-group col-sm-10">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput7" class="col-form-label col-sm-2">
+                    <label for="ControlInput7" class="col-form-label col-sm-2" asp-for="Ninio.Fecha_nac">
                         Fecha de nacimiento:
                     </label>
                     <div class="col-sm-10">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput8" class="col-form-label col-sm-2">
+                    <label for="ControlInput8" class="col-form-label col-sm-2" asp-for="Ninio.Genero">
                         Genero:
                     </label>
                     <div class="col-sm-10">
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput6" class="col-form-label col-sm-2">
+                    <label for="ControlInput6" class="col-form-label col-sm-2" asp-for="Ninio.Foto">
                         Foto del niño:
                     </label>
                     <div class="col-sm-10">
@@ -138,30 +138,30 @@
                         </div>
                     </div>
                 </div>
-                <div id="datosCEdu" class="tab-pane fade" role="tabpanel" aria-labelledby="datosCEdu-tab">
-                    <div class="form-group row">
-                        <label for="ControlInput9" class="col-form-label col-sm-2">
-                            Clave:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput9" placeholder="Escriba la clave del Centro Educativo">
-                        </div>
+            </div>
+            <div id="datosCEdu" class="tab-pane fade" role="tabpanel" aria-labelledby="datosCEdu-tab">
+                <div class="form-group row">
+                    <label for="ControlInput9" class="col-form-label col-sm-2" asp-for="CentroE.Clave">
+                        Clave:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput9" placeholder="Escriba la clave del Centro Educativo" asp-for="CentroE.Clave">
                     </div>
-                    <div class="form-group row">
-                        <label for="ControlInput10" class="col-form-label col-sm-2">
-                            Nombre:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput10" placeholder="Escriba el nombre del Centro Educativo">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ControlInput10" class="col-form-label col-sm-2" asp-for="CentroE.Nombre">
+                        Nombre:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput10" placeholder="Escriba el nombre del Centro Educativo">
                     </div>
-                    <div class="form-group row">
-                        <label for="ControlInput11" class="col-form-label col-sm-2">
-                            Direccion:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ControlInput11" placeholder="Calle 01 #234 x 56 y 57">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ControlInput11" class="col-form-label col-sm-2" asp-for="CentroE.Direccion">
+                        Direccion:
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ControlInput11" placeholder="Calle 01 #234 x 56 y 57">
                     </div>
                 </div>
             </div>
