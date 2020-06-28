@@ -6,7 +6,6 @@ namespace M_CHAT.Models
 {
     public class Respuesta : BaseEntity
     {
-        public int RespuestaID { get; set; }
         public string Valor { get; set; }
         
         //Referencias

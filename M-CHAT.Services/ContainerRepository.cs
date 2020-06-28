@@ -8,6 +8,11 @@ namespace M_CHAT.Services
 {
     public class ContainerRepository : SQLRepository<Tutor>, IContainerRepository
     {
+        //AppDBContext context;
+        //public ContainerRepository(AppDBContext context)
+        //{
+        //    this.context = context;
+        //}
         public ContainerRepository(AppDBContext context) : base(context) { }
         public IEnumerable<Tutor> GetTutores()
         {

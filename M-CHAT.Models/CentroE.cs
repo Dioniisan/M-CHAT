@@ -10,14 +10,15 @@ namespace M_CHAT.Models
     public class CentroE : BaseEntity
     {
         
-        public int CentroEID { get; set; }
-        [Display(Name = "Nombre del Centro Educativo")]
+        [Display(Name = "Nombre del Centro Educativo", Prompt ="Jardin de niños Fidel Velazquez.")]
+        [Required(ErrorMessage = "Debe proporcionar un genero al niño. Recuerde que solo hay dos generos.")]
         public string Nombre { get; set; }
 
-        [Display(Name = "Direccion del Centro Educativo")]
+        [Display(Name = "Direccion del Centro Educativo", Prompt = "124358ABC832")]
+        [Required(ErrorMessage = "Debe proporcionar una clave del centro educativo")]
         public string Direccion { get; set; }
 
-        [Display(Name = "Clave del Centro Educativo")]
+        [Display(Name = "Clave del Centro Educativo", Prompt = "")]
         [Required(ErrorMessage ="Clave requerida.")]
         public string Clave { get; set; }
 

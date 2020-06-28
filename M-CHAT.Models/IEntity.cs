@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    public class IEntity
+    public interface IEntity
     {
         public int Id { get; set; }
         public bool Status { get; set; }
