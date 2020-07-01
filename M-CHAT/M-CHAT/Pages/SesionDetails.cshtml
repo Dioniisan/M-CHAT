@@ -25,7 +25,7 @@
                     <label for="ControlInput1">Nombre</label>
                     <div>
                         @*<input type="text" class="form-control" id="ControlInput1" placeholder="Escriba su nombre">*@
-                        <label class="form-control form-text" role="textbox">Escriba su nombre</label>
+                        <label class="form-control form-text" role="textbox">@Model.Tutor.Nombre</label>
                     </div>
                 </div>
             </li>
@@ -34,7 +34,7 @@
                     <label for="ControlInput2">Direccion</label>
                     <div>
                         @*<input type="text" class="" id="ControlInput2" placeholder="Calle 01 #234 x 56 y 57">*@
-                        <label class="form-control form-text" role="textbox">Calle 01 #234 x 56 y 57</label>
+                        <label class="form-control form-text" role="textbox">@Model.Tutor.Direccion</label>
                     </div>
                 </div>
             </li>
@@ -43,7 +43,7 @@
                     <label for="ControlInput3">Correo Electronico</label>
                     <div>
                         @*<input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">*@
-                        <label class="form-control form-text" role="textbox">Correo@correo.com</label>
+                        <label class="form-control form-text" role="textbox">@Model.Cuenta.Correo</label>
                     </div>
                 </div>
             </li>
@@ -62,7 +62,7 @@
     <div class="card text-right" style="max-width: 36rem;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="https://images.generated.photos/LViyq3UDohWL5udl-FdxH0wKeowcv4BNGDW5sfXl42g/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAzMzY2ODYuanBn.jpg" class="card-img" />
+                <img src="@Model.Ninio.Foto" class="card-img" />
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -70,13 +70,13 @@
                     <p class="card-text">
                         <ul>
                             <li>
-                                CURP
+                                @Model.Ninio.CURP
                             </li>
                             <li>
-                                Nacionalidad
+                                @Model.Ninio.Nacionalidad
                             </li>
                             <li>
-                                Genero
+                                @Model.Ninio.Genero
                             </li>
                         </ul>
                     </p>
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div class="card text-right" style="max-width: 36rem;">
+    @*<div class="card text-right" style="max-width: 36rem;">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
@@ -119,5 +119,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    class Plantilla
+    public class Plantilla : BaseEntity
     {
         public int Version { get; set; }
 

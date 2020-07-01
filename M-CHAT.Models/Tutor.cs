@@ -14,13 +14,8 @@ namespace M_CHAT.Models
         [Display(Name = "Dirección", Prompt = "Calle 15A #569, Fracc. Maldivas")]
         [Required(ErrorMessage = "Necesita proporcionar una dirección.")]
         public string Direccion { get; set; }
-        [Display(Name = "Correo Electronico", Prompt = "Ejemplo@correo.com")]
-        [Required(ErrorMessage = "Necesita proporcionar un correo electronico valido.")]
-        public string Correo { get; set; }
-        [Display(Name = "Contraseña", Prompt = "Contraseña")]
-        [Required(ErrorMessage = "Debe proporcionar una contraseña.")]
-        public string Contrasenia { get; set; }
-        public Cuenta Cuenta { get; set; }
+        
+
 
         //Navega
         public ICollection<Ninio> Ninios { get; set; }
@@ -28,7 +23,7 @@ namespace M_CHAT.Models
         //Referencias
         [ForeignKey("Cuenta")]
         public int CuentaId { get; set; }
-
+        public Cuenta Cuenta { get; set; }
 
     }
 }

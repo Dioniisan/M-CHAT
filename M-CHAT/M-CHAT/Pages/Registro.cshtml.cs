@@ -16,9 +16,14 @@ namespace M_CHAT.Pages
         private readonly IRepository<Ninio> repositorioNinio;
         private readonly IRepository<CentroE> repositorioCentroE;
 
-        public Tutor Tutor { get; private set; }
-        public Ninio Ninio { get; private set; }
-        public CentroE CentroE { get; private set; }
+        [BindProperty]
+        public Tutor Tutor { get; set; }
+        [BindProperty]
+        public Ninio Ninio { get; set; }
+        public CentroE CentroE { get; set; }
+        [BindProperty]
+        public Cuenta Cuenta { get; set; }
+        public int TutorNuevo { get; set; }
         public RegistroModel(IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE)
         {
             this.repositorioTutor = repositorioTutor;

@@ -20,6 +20,7 @@ namespace M_CHAT.Pages
         public Tutor Tutor { get; set; }
         [BindProperty]
         public Ninio Ninio { get; set; }
+        public int NinioNuevo { get; set; }
         public CentroE CentroE { get; set; }
         [BindProperty]
         public Cuenta Cuenta { get; set; }
@@ -44,7 +45,10 @@ namespace M_CHAT.Pages
             Tutor.Cuenta = Cuenta;
             repositorioCuenta.Insert(Cuenta);
             TutorNuevo = repositorioTutor.Insert(Tutor);
-            return Redirect("/SesionDetails" + TutorNuevo);
+            Ninio.TutorID = Tutor.Id;
+            //repositorioCentroE.Insert(CentroE);
+            NinioNuevo = repositorioNinio.Insert(Ninio);
+            return Redirect("/SesionDetails");
 
         }
     }

@@ -26,19 +26,19 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CentroEID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Clave")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Direccion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -59,17 +59,16 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Contrasenia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("CuentaID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -90,6 +89,7 @@ namespace M_CHAT.Services.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CURP")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CentroEID")
@@ -103,18 +103,22 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Fecha_nac")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Foto")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genero")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NinioID")
-                        .HasColumnType("int");
+                    b.Property<string>("Nacionalidad")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nom_Comp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -136,6 +140,96 @@ namespace M_CHAT.Services.Migrations
                     b.ToTable("Ninios");
                 });
 
+            modelBuilder.Entity("M_CHAT.Models.Plantilla", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Plantilla");
+                });
+
+            modelBuilder.Entity("M_CHAT.Models.Pregunta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlantillaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PreguntaRealizada")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Tipo")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlantillaId");
+
+                    b.ToTable("Preguntas");
+                });
+
+            modelBuilder.Entity("M_CHAT.Models.Respuesta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NinioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PreguntaId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("ValorRespuesta")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NinioId");
+
+                    b.HasIndex("PreguntaId");
+
+                    b.ToTable("Respuestas");
+                });
+
             modelBuilder.Entity("M_CHAT.Models.Tutor", b =>
                 {
                     b.Property<int>("Id")
@@ -143,31 +237,29 @@ namespace M_CHAT.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contrasenia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Correo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CuentaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Direccion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TutorID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedAT")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CuentaId");
 
                     b.ToTable("Tutores");
                 });
@@ -183,6 +275,39 @@ namespace M_CHAT.Services.Migrations
                     b.HasOne("M_CHAT.Models.Tutor", "Tutor")
                         .WithMany("Ninios")
                         .HasForeignKey("TutorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("M_CHAT.Models.Pregunta", b =>
+                {
+                    b.HasOne("M_CHAT.Models.Plantilla", "Plantilla")
+                        .WithMany()
+                        .HasForeignKey("PlantillaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("M_CHAT.Models.Respuesta", b =>
+                {
+                    b.HasOne("M_CHAT.Models.Ninio", "Ninio")
+                        .WithMany()
+                        .HasForeignKey("NinioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("M_CHAT.Models.Pregunta", "Pregunta")
+                        .WithMany()
+                        .HasForeignKey("PreguntaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("M_CHAT.Models.Tutor", b =>
+                {
+                    b.HasOne("M_CHAT.Models.Cuenta", "Cuenta")
+                        .WithMany()
+                        .HasForeignKey("CuentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

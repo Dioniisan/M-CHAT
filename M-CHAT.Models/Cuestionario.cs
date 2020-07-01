@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M_CHAT.Models
 {
-    public class Cuestionario
+    public class Cuestionario : BaseEntity
     {
         public bool Respuesta { get; set; }
 

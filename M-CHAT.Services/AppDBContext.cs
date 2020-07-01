@@ -15,6 +15,9 @@ namespace M_CHAT.Services
         public DbSet<CentroE> CentrosE { get; set; }
         public DbSet<Cuenta> Cuentas { get; set; }
         public DbSet<Ninio> Ninios { get; set; }
+        public DbSet<Respuesta> Respuestas { get; set; }
+        public DbSet<Pregunta> Preguntas { get; set; }
+
 
 
     }

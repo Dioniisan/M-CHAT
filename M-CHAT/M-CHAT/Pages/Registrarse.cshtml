@@ -8,37 +8,37 @@
     <a asp-page="/Index" class="btn btn-danger m-1">Cancelar</a>
 </div>
 <br />
-<div class="card" style="width: 69.9rem;">
-    <div class="card-header">
-        Datos del tutor
-    </div>
-    <form method="post">
+<form method="post">
+    <div class="card" style="width: 69.9rem;">
+        <div class="card-header">
+            Datos del tutor
+        </div>
+
         <div class="form-group">
             <label asp-for="Tutor.Nombre"></label>
-            <input type="text" class="form-control form-text" asp-for="@Model.Tutor.Nombre">
+            <input type="text" class="form-control form-text" asp-for="Tutor.Nombre">
         </div>
         <div class="form-group">
             <label asp-for="Tutor.Direccion"></label>
-            <input type="text" class="form-control" asp-for="@Model.Tutor.Direccion">
+            <input type="text" class="form-control" asp-for="Tutor.Direccion">
         </div>
         <div class="form-group">
-            <label asp-for="Tutor.Correo"></label>
-            <input type="email" class="form-control" asp-for="@Model.Tutor.Correo">
+            <label asp-for="Cuenta.Correo"></label>
+            <input type="email" class="form-control" asp-for="Cuenta.Correo">
         </div>
         <div class="form-group">
-            <label asp-for="Tutor.Contrasenia"></label>
-            <input type="text" class="form-control" asp-for="@Model.Tutor.Contrasenia">
+            <label asp-for="Cuenta.Contrasenia"></label>
+            <input type="text" class="form-control" asp-for="Cuenta.Contrasenia">
         </div>
-    </form>       
-</div>
-<br />
-<div>
-    <input type="checkbox" id="chbox1" value="firstch" onclick="mostrar()" />
-    <label for="chbox1">
-        Quiero ingresar los datos de 1 niño como minimo.
-    </label>
-</div>
-<form method="post">
+
+    </div>
+    <br />
+    <div>
+        <input type="checkbox" id="chbox1" value="firstch" onclick="mostrar()" />
+        <label for="chbox1">
+            Quiero ingresar los datos de 1 niño como minimo.
+        </label>
+    </div>
     <div id="Datos2" class="flex-grow-1 p-2" style="display:none">
         <!--Nav tabs-->
         <ul class="nav nav-tabs" role="tablist">
@@ -59,13 +59,13 @@
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="Ninio.Nom_Comp"></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" asp-for="@Model.Ninio.Nom_Comp">
+                        <input type="text" class="form-control" asp-for="Ninio.Nom_Comp">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="Ninio.CURP"></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" asp-for="@Model.Ninio.CURP">
+                        <input type="text" class="form-control" asp-for="Ninio.CURP">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -77,7 +77,7 @@
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="Ninio.Fecha_nac"></label>
                     <div class="col-sm-10">
-                        <input type="date" data-role="" class="form-control" asp-for="@Model.Ninio.Fecha_nac">
+                        <input type="date" data-role="" class="form-control" asp-for="Ninio.Fecha_nac">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -114,7 +114,7 @@
                     <div class="col-sm-10">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon03" asp-for="@Model.Ninio.Foto">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon03" asp-for="Ninio.Foto">
                                 <label class="custom-file-label" for="inputGroupFile03">Elija una imagen desde su equipo.</label>
                             </div>
                         </div>
@@ -125,25 +125,35 @@
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Clave"></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" asp-for="@Model.CentroE.Clave">
+                        <input type="text" class="form-control" asp-for="CentroE.Clave">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Nombre"></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" asp-for="@Model.CentroE.Nombre">
+                        <input type="text" class="form-control" asp-for="CentroE.Nombre">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Direccion"></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" asp-for="@Model.CentroE.Direccion">
+                        <input type="text" class="form-control" asp-for="CentroE.Direccion">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <input hidden asp-for="@Model.Tutor.Id" />
+    <input hidden asp-for="@Model.Ninio.Id" />
+    <input hidden asp-for="@Model.CentroE.Id" />
+    <input hidden asp-for="@Model.Cuenta.Id" />
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success m-1">Registrarse</button>
+    </div>
 </form>
+
+
+
 
 <script>
     function mostrar() {
@@ -159,9 +169,4 @@
         }
     }
 </script>
-<input hidden asp-for="@Model.Tutor.Id" />
-<input hidden asp-for="@Model.Ninio.Id" />
-<input hidden asp-for="@Model.CentroE.Id"/>
-<div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-success m-1">Registrarse</button>
-</div>
+

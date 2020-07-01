@@ -8,10 +8,12 @@ namespace M_CHAT.Models
 {
     public class Cuenta : BaseEntity
     {
-        [Display(Name ="Correo Electronico")]
+        [Display(Name = "Correo Electronico", Prompt = "Ejemplo@correo.com")]
+        [Required(ErrorMessage = "Necesita proporcionar un correo electronico valido.")]
         public string Correo { get; set; }
-        [Display(Name ="Contraseña")]
-        public string Password { get; set; }
+        [Display(Name = "Contraseña", Prompt = "Contraseña")]
+        [Required(ErrorMessage = "Debe proporcionar una contraseña.")]
+        public string Contrasenia { get; set; }
 
         //Referencias
         ///Tutor
