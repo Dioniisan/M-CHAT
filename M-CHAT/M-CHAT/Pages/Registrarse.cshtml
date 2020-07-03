@@ -8,7 +8,7 @@
     <a asp-page="/Index" class="btn btn-danger m-1">Cancelar</a>
 </div>
 <br />
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="card" style="width: 69.9rem;">
         <div class="card-header">
             Datos del tutor
@@ -17,18 +17,22 @@
         <div class="form-group">
             <label asp-for="Tutor.Nombre"></label>
             <input type="text" class="form-control form-text" asp-for="Tutor.Nombre">
+            <span class="text-danger" asp-validation-for="Tutor.Nombre"></span>
         </div>
         <div class="form-group">
             <label asp-for="Tutor.Direccion"></label>
             <input type="text" class="form-control" asp-for="Tutor.Direccion">
+            <span class="text-danger" asp-validation-for="Tutor.Direccion"></span>
         </div>
         <div class="form-group">
             <label asp-for="Cuenta.Correo"></label>
             <input type="email" class="form-control" asp-for="Cuenta.Correo">
+            <span class="text-danger" asp-validation-for="Cuenta.Correo"></span>
         </div>
         <div class="form-group">
             <label asp-for="Cuenta.Contrasenia"></label>
             <input type="text" class="form-control" asp-for="Cuenta.Contrasenia">
+            <span class="text-danger" asp-validation-for="Cuenta.Contrasenia"></span>
         </div>
 
     </div>
@@ -60,24 +64,28 @@
                     <label class="col-form-label col-sm-2" asp-for="Ninio.Nom_Comp"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="Ninio.Nom_Comp">
+                        <span class="text-danger" asp-validation-for="Ninio.Nom_Comp"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="Ninio.CURP"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="Ninio.CURP">
+                        <span class="text-danger" asp-validation-for="Ninio.CURP"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="ControlInput6" class="col-form-label col-sm-2" asp-for="Ninio.Nacionalidad"></label>
                     <div class="col-sm-10">
                         <select asp-for="@Model.Ninio.Nacionalidad" class="form-control col-md-8" asp-items="Html.GetEnumSelectList<M_CHAT.Models.Nacionalidad>()"></select>
+                        <span class="text-danger" asp-validation-for="Ninio.Nacionalidad"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="Ninio.Fecha_nac"></label>
                     <div class="col-sm-10">
                         <input type="date" data-role="" class="form-control" asp-for="Ninio.Fecha_nac">
+                        <span class="text-danger" asp-validation-for="Ninio.Fecha_nac"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -116,6 +124,7 @@
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon03" asp-for="Ninio.Foto">
                                 <label class="custom-file-label" for="inputGroupFile03">Elija una imagen desde su equipo.</label>
+                                <span class="text-danger" asp-validation-for="Ninio.Foto"></span>
                             </div>
                         </div>
                     </div>
@@ -126,18 +135,21 @@
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Clave"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="CentroE.Clave">
+                        <span class="text-danger" asp-validation-for="CentroE.Clave"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Nombre"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="CentroE.Nombre">
+                        <span class="text-danger" asp-validation-for="CentroE.Nombre"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label col-sm-2" asp-for="CentroE.Direccion"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="CentroE.Direccion">
+                        <span class="text-danger" asp-validation-for="CentroE.Direccion"></span>
                     </div>
                 </div>
             </div>
@@ -147,13 +159,22 @@
     <input hidden asp-for="@Model.Ninio.Id" />
     <input hidden asp-for="@Model.CentroE.Id" />
     <input hidden asp-for="@Model.Cuenta.Id" />
+    <input hidden asp-for="Ninio.Foto" />
+
     <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-success m-1">Registrarse</button>
     </div>
 </form>
-
-
-
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}
 
 <script>
     function mostrar() {

@@ -18,4 +18,8 @@
     <ProjectReference Include="..\..\M-CHAT.Services\M-CHAT.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
