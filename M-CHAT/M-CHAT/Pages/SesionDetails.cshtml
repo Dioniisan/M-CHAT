@@ -1,6 +1,8 @@
 ﻿@page
 @model M_CHAT.Pages.Index1Model
 @{
+    ViewData["Title"] = "Detalles de la sesion";
+
 }
 
 <h1>Informacion de la cuenta</h1>
@@ -22,10 +24,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="form-group-row">
-                    <label for="ControlInput1">Nombre</label>
+                    <label asp-for="Tutor.Nombre"></label>
                     <div>
                         @*<input type="text" class="form-control" id="ControlInput1" placeholder="Escriba su nombre">*@
-                        <label class="form-control form-text" role="textbox">@Model.Tutor.Nombre</label>
+                        <label class="form-control form-text" role="textbox" asp-for="@Model.Tutor.Nombre"></label>
                     </div>
                 </div>
             </li>
@@ -34,7 +36,7 @@
                     <label for="ControlInput2">Direccion</label>
                     <div>
                         @*<input type="text" class="" id="ControlInput2" placeholder="Calle 01 #234 x 56 y 57">*@
-                        <label class="form-control form-text" role="textbox">@Model.Tutor.Direccion</label>
+                        <label class="form-control form-text" role="textbox"></label>
                     </div>
                 </div>
             </li>
@@ -43,7 +45,7 @@
                     <label for="ControlInput3">Correo Electronico</label>
                     <div>
                         @*<input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">*@
-                        <label class="form-control form-text" role="textbox">@Model.Cuenta.Correo</label>
+                        <label class="form-control form-text" role="textbox"></label>
                     </div>
                 </div>
             </li>
@@ -62,7 +64,7 @@
     <div class="card text-right" style="max-width: 36rem;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="@Model.Ninio.Foto" class="card-img" />
+                <img src="" class="card-img" />
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -70,13 +72,13 @@
                     <p class="card-text">
                         <ul>
                             <li>
-                                @Model.Ninio.CURP
+
                             </li>
                             <li>
-                                @Model.Ninio.Nacionalidad
+
                             </li>
                             <li>
-                                @Model.Ninio.Genero
+
                             </li>
                         </ul>
                     </p>
@@ -90,34 +92,34 @@
         </div>
     </div>
     @*<div class="card text-right" style="max-width: 36rem;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre del niño</h5>
-                    <p class="card-text">
-                        <ul>
-                            <li>
-                                CURP
-                            </li>
-                            <li>
-                                Nacionalidad
-                            </li>
-                            <li>
-                                Genero
-                            </li>
-                        </ul>
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
-                        <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
-                        <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre del niño</h5>
+                        <p class="card-text">
+                            <ul>
+                                <li>
+                                    CURP
+                                </li>
+                                <li>
+                                    Nacionalidad
+                                </li>
+                                <li>
+                                    Genero
+                                </li>
+                            </ul>
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
+                            <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
+                            <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>*@
+        </div>*@
+</div>
 

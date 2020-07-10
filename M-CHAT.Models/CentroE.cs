@@ -11,7 +11,7 @@ namespace M_CHAT.Models
     {
         
         [Display(Name = "Nombre del Centro Educativo", Prompt ="Jardin de niños Fidel Velazquez.")]
-        [Required(ErrorMessage = "Debe proporcionar un genero al niño. Recuerde que solo hay dos generos.")]
+        [Required(ErrorMessage = "Debe proporcionar el nombre del centro educativo.")]
         public string Nombre { get; set; }
 
         [Display(Name = "Direccion del Centro Educativo", Prompt = "124358ABC832")]

@@ -16,7 +16,7 @@ namespace M_CHAT.Models
         public string Contrasenia { get; set; }
 
         //Referencias
-        ///Tutor
-        ///Administrador
+        public Tutor Tutor { get; set; }
+        //public Administrador Administrador { get; set; }
     }
 }

@@ -49,17 +49,17 @@ namespace M_CHAT.Pages
 
         public IActionResult OnPost(int id)
         {
+            if (!ModelState.IsValid)
+                return Page();
             Tutor.Cuenta = Cuenta;
             repositorioCuenta.Insert(Cuenta);
             TutorNuevo = repositorioTutor.Insert(Tutor);
             Ninio.TutorID = id;
             repositorioCentroE.Insert(CentroE);
             Ninio.CentroE = CentroE;
-            if (!ModelState.IsValid)
-                return Page();
-            if (FotoNinio != null)
+            if (FotoNinio == null)
             {
-                if (!string.IsNullOrEmpty(Ninio.Foto))
+                if (string.IsNullOrEmpty(Ninio.Foto))
                 {
                     var filePath = Path.Combine(HostEnvironment.WebRootPath, "Images", Ninio.Foto);
                     System.IO.File.Delete(filePath);
@@ -71,6 +71,7 @@ namespace M_CHAT.Pages
             NinioNuevo = repositorioNinio.Insert(Ninio);
 
             return Redirect("/SesionDetails");
+
         }
         private string ProcessUploadFile()
         {

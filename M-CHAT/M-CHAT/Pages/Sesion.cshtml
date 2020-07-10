@@ -1,10 +1,12 @@
 ﻿@page
 @model M_CHAT.Pages.SesionModel
 @{
+    ViewData["Title"] = "Iniciar Sesion";
+
 }
 
 <h1>Iniciar Sesion</h1>
-<p>
+<form method="post">
     <div class="card" style="width: 30rem;">
         <div class="card-header">
             Datos del tutor
@@ -12,19 +14,21 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="ControlInput3">Correo Electronico</label>
-                    <input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">
+                    <label asp-for="Cuenta.Correo"></label>
+                    <input type="text" class="form-control" role="textbox" asp-for="@Model.Cuenta.Correo" placeholder="Correo@correo.com">
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="ControlInput2">Contraseña</label>
-                    <input type="password" class="form-control" id="ControlInput2" placeholder="°°°°°°°°">
+                    <label asp-for="Cuenta.Contrasenia"></label>
+                    <input type="password" class="form-control" role="textbox" asp-for="@Model.Cuenta.Contrasenia" placeholder="°°°°°°°°">
                     <br />
                     <div class="d-flex justify-content-end">
-                        <a asp-page="/SesionDetails" class="btn btn-outline-success m-1">Iniciar Sesion</a>
+                        <button type="submit" class="btn btn-outline-success m-1">Iniciar Sesion</button>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
+</form>
+    
