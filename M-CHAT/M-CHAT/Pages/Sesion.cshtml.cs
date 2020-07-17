@@ -32,7 +32,7 @@ namespace M_CHAT.Pages
         {
             cont = repository.InicioSesion(Cuenta);
 
-            return Redirect("/SesionDetails");
+            return Redirect("/SesionDetails/?Id="+cont);
         }
     }
 }

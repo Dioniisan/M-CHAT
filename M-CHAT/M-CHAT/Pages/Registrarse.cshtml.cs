@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using M_CHAT.Services;
 using M_CHAT.Models;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
@@ -18,6 +19,8 @@ namespace M_CHAT.Pages
         private readonly IRepository<Ninio> repositorioNinio;
         private readonly IRepository<CentroE> repositorioCentroE;
         private readonly IRepository<Cuenta> repositorioCuenta;
+        private readonly ILogger<RegistrarseModel> _logger;
+        public IContainerRepository repository;
         public IFormFile FotoNinio { get; set; }
         public IWebHostEnvironment HostEnvironment { get; }
 
@@ -25,12 +28,14 @@ namespace M_CHAT.Pages
         public Tutor Tutor { get; set; }
         [BindProperty]
         public Ninio Ninio { get; set; }
-        public int NinioNuevo { get; set; }
         [BindProperty]
         public CentroE CentroE { get; set; }
+        public int NinioNuevo { get; set; }
         [BindProperty]
         public Cuenta Cuenta { get; set; }
         public int TutorNuevo { get; set; }
+        public int cont;
+
         public RegistrarseModel(IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE, IRepository<Cuenta> repositorioCuenta, IWebHostEnvironment hostEnvironment)
         {
             this.repositorioTutor = repositorioTutor;
@@ -69,8 +74,9 @@ namespace M_CHAT.Pages
             }
             //var id = Repository.Insert(workshop);
             NinioNuevo = repositorioNinio.Insert(Ninio);
+            cont = repository.InicioSesion(Cuenta);
 
-            return Redirect("/SesionDetails");
+            return Redirect("/SesionDetails/?Id=" + cont);
 
         }
         private string ProcessUploadFile()

@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using M_CHAT.Models;
+using M_CHAT.Services;
 
 namespace M_CHAT.Pages
 {
     public class Index1Model : PageModel
     {
+        private readonly IContainerRepository repository;
+
+        public Tutor Ninios { get; private set; }
+
         [BindProperty]
         public Tutor Tutor { get; set; }
         [BindProperty]
@@ -19,8 +24,15 @@ namespace M_CHAT.Pages
         [BindProperty]
         public Cuenta Cuenta { get; set; }
         public int TutorNuevo { get; set; }
-        public void OnGet()
+        public void OnGet(int id)
         {
+            Ninios = repository.GetNiniosbyTutor(id);
+            ViewData["Tutor"] = id;
+        }
+
+        public Index1Model(IContainerRepository repository)
+        {
+            this.repository = repository;
         }
     
     }
