@@ -16,6 +16,11 @@
     <div class="d-flex justify-content-end">
         <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
     </div>*@
+<input hidden asp-for="@Model.Tutor.Id" />
+<input hidden asp-for="@Model.Tutor.CuentaId" />
+<input hidden asp-for="@Model.Cuenta.Id" />
+
+
 <p>
     <div class="card" style="width: 69.9rem;">
         <div class="card-header">
@@ -99,35 +104,35 @@
     }
 }
 
-    @*<div class="card text-right" style="max-width: 36rem;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre del niño</h5>
-                        <p class="card-text">
-                            <ul>
-                                <li>
-                                    CURP
-                                </li>
-                                <li>
-                                    Nacionalidad
-                                </li>
-                                <li>
-                                    Genero
-                                </li>
-                            </ul>
-                        </p>
-                        <div class="d-flex justify-content-end">
-                            <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
-                            <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
-                            <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
-                        </div>
+@*<div class="card text-right" style="max-width: 36rem;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Nombre del niño</h5>
+                    <p class="card-text">
+                        <ul>
+                            <li>
+                                CURP
+                            </li>
+                            <li>
+                                Nacionalidad
+                            </li>
+                            <li>
+                                Genero
+                            </li>
+                        </ul>
+                    </p>
+                    <div class="d-flex justify-content-end">
+                        <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
+                        <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
+                        <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>
+    </div>*@
 
 

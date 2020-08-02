@@ -94,41 +94,30 @@
                     <label class="col-form-label col-sm-2" asp-for="Ninio.Genero"></label>
                     <div class="col-sm-10">
                         <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" value="Masculino" asp-for="Ninio.Genero">
-
-                                Masculino
-
-                            </label>
+                            <input type="radio" asp-for="Ninio.Genero" value="Hombre">
+                            <label asp-for="Ninio.Genero"> Hombre</label>
                         </div>
                         <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" value="Femenino" asp-for="Ninio.Genero">
-
-                                Femenino
-
-                            </label>
+                            <input type="radio"asp-for="Ninio.Genero" value="Mujer">
+                            <label asp-for="Ninio.Genero"> Mujer</label>
                         </div>
                         <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" value="Otro" asp-for="Ninio.Genero">
-
-                                Otro
-
-                            </label>
+                            <input type="radio" asp-for="Ninio.Genero" value="Otro">
+                            <label asp-for="Ninio.Genero"> Otro</label>
                         </div>
                         <span class="text-danger" asp-validation-for="Ninio.Genero"></span>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ControlInput6" class="col-form-label col-sm-2" asp-for="Ninio.Foto"></label>
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.Foto"></label>
+                    <input hidden asp-for="Ninio.Foto" />
+
                     <div class="col-sm-10">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon03" asp-for="Ninio.Foto">
-                                <label class="custom-file-label" for="inputGroupFile03">Elija una imagen desde su equipo.</label>
+                                <input type="file" class="custom-file-input form-control" asp-for="FotoNinio">
+                                <label class="custom-file-label" for="FotoNinio">Elija una imagen desde su equipo.</label>
                             </div>
-                            <span class="text-danger" asp-validation-for="Ninio.Foto"></span>
                         </div>
                     </div>
                 </div>
@@ -162,7 +151,6 @@
     <input hidden asp-for="@Model.Ninio.Id" />
     <input hidden asp-for="@Model.CentroE.Id" />
     <input hidden asp-for="@Model.Cuenta.Id" />
-    <input hidden asp-for="Ninio.Foto" />
 
     <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-success m-1">Registrarse</button>
