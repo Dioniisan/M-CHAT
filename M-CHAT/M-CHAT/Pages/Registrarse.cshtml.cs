@@ -65,19 +65,19 @@ namespace M_CHAT.Pages
 
                 }
                 Ninio.Foto = ProcessUploadFile();
-                Tutor.Cuenta = Cuenta;
-                repositorioCuenta.Insert(Cuenta);
-                TutorNuevo = repositorioTutor.Insert(Tutor);
-                Ninio.TutorID = Tutor.Id;
-                repositorioCentroE.Insert(CentroE);
-                Ninio.CentroE = CentroE;
-                NinioNuevo = repositorioNinio.Insert(Ninio);
+
             }
             //var id = Repository.Insert(workshop);
-            
-            
-            if (!ModelState.IsValid)
-                return Page();
+            Tutor.Cuenta = Cuenta;
+            repositorioCuenta.Insert(Cuenta);
+            TutorNuevo = repositorioTutor.Insert(Tutor);
+            Ninio.TutorID = Tutor.Id;
+            repositorioCentroE.Insert(CentroE);
+            Ninio.CentroE = CentroE;
+            NinioNuevo = repositorioNinio.Insert(Ninio);
+
+            //if (!ModelState.IsValid)
+            //    return Page();
             cont = repository.InicioSesion(Cuenta);
             return Redirect("/SesionDetails/?Id=" + cont);
 

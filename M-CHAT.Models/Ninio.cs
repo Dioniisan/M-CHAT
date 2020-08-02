@@ -24,7 +24,6 @@ namespace M_CHAT.Models
         [Required(ErrorMessage = "Debe proporcionar un genero al niño. Recuerde que solo hay dos generos.")]
         public string Genero { get; set; }
         [Display(Name = "Foto del niño", Prompt = "Foto del niño")]
-        [Required(ErrorMessage = "Debe proporcionar una fotografia del niño.")]
         public string Foto { get; set; }
 
         public string Nacionalidad { get; set; } //voy a descartar esto aqui, en su lugar creare una enumeracion y un repositorio especifico.
