@@ -19,7 +19,6 @@ namespace M_CHAT.Pages
         private readonly IRepository<Ninio> repositorioNinio;
         private readonly IRepository<CentroE> repositorioCentroE;
         private readonly IRepository<Cuenta> repositorioCuenta;
-        private readonly ILogger<RegistrarseModel> _logger;
         public IContainerRepository repository;
         public IFormFile FotoNinio { get; set; }
         public IWebHostEnvironment HostEnvironment { get; }
@@ -36,12 +35,14 @@ namespace M_CHAT.Pages
         public int TutorNuevo { get; set; }
         public int cont;
 
-        public RegistrarseModel(IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE, IRepository<Cuenta> repositorioCuenta, IWebHostEnvironment hostEnvironment)
+        public RegistrarseModel(IContainerRepository repository, IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE, IRepository<Cuenta> repositorioCuenta, IWebHostEnvironment hostEnvironment)
         {
             this.repositorioTutor = repositorioTutor;
             this.repositorioNinio = repositorioNinio;
             this.repositorioCentroE = repositorioCentroE;
             this.repositorioCuenta = repositorioCuenta;
+            this.repository = repository;
+
             HostEnvironment = hostEnvironment;
 
         }
@@ -54,8 +55,9 @@ namespace M_CHAT.Pages
 
         public IActionResult OnPost(int id, Ninio Ninio)
         {
-            
-         
+            if (!ModelState.IsValid)
+                return Page();
+
             if (FotoNinio != null)
             {
                 if (!string.IsNullOrEmpty(Ninio.Foto))
@@ -76,8 +78,7 @@ namespace M_CHAT.Pages
             Ninio.CentroE = CentroE;
             NinioNuevo = repositorioNinio.Insert(Ninio);
 
-            //if (!ModelState.IsValid)
-            //    return Page();
+            
             cont = repository.InicioSesion(Cuenta);
             return Redirect("/SesionDetails/?Id=" + cont);
 

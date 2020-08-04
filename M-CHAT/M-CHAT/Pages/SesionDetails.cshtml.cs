@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using M_CHAT.Models;
 using M_CHAT.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace M_CHAT.Pages
 {
@@ -27,7 +28,10 @@ namespace M_CHAT.Pages
         public void OnGet(int id)
         {
             Ninios = repository.GetNiniosbyTutor(id);
-            ViewData["Tutor"] = id;
+            Tutor = repository.GetTutor(id);
+            Cuenta = repository.GetCuenta(id);
+            ViewData["Tutor"] = id; 
+
         }
 
         public Index1Model(IContainerRepository repository)

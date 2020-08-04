@@ -38,6 +38,14 @@ namespace M_CHAT.Services
 
         }
 
+        public Tutor GetTutor(int id)
+        {
+            return context.Tutores.Include(x => x.Ninios).FirstOrDefault(x => x.Id == id);
+        }
+        public Cuenta GetCuenta(int id)
+        {
+            return context.Cuentas.FirstOrDefault(x => x.Tutor.Id == id);
+        }
 
         public Ninio GetNinio(int id)
         {

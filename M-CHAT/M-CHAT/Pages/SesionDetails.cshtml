@@ -19,6 +19,8 @@
 <input hidden asp-for="@Model.Tutor.Id" />
 <input hidden asp-for="@Model.Tutor.CuentaId" />
 <input hidden asp-for="@Model.Cuenta.Id" />
+<input hidden asp-for="@Model.Ninio.Id" />
+
 
 
 <p>
@@ -31,17 +33,17 @@
                 <div class="form-group-row">
                     <label asp-for="Tutor.Nombre"></label>
                     <div>
-                        @*<input type="text" class="form-control" id="ControlInput1" placeholder="Escriba su nombre">*@
-                        <label class="form-control form-text" role="textbox">@Model.Tutor.Nombre</label>
+                        <input type="text" role="textbox" class="form-control" asp-for="@Model.Tutor.Nombre" readonly>
+                        @*<label asp-for="@Model.Tutor.Nombre" type="text" role="textbox" class="form-control"></label>*@
                     </div>
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="form-group-row">
-                    <label> asp-for="Tutor.Direccion"</label>
+                    <label asp-for="Tutor.Direccion"></label>
                     <div>
-                        @*<input type="text" class="" id="ControlInput2" placeholder="Calle 01 #234 x 56 y 57">*@
-                        <label class="form-control form-text" role="textbox">@Model.Tutor.Direccion</label>
+                        <input type="text" role="textbox" class="form-control" asp-for="@Model.Tutor.Direccion" readonly>
+                        @*<label class="form-control form-text" role="textbox">@Model.Tutor.Direccion</label>*@
                     </div>
                 </div>
             </li>
@@ -49,8 +51,8 @@
                 <div class="form-group-row">
                     <label for="ControlInput3">Correo Electronico</label>
                     <div>
-                        @*<input type="text" class="form-control" id="ControlInput3" placeholder="Correo@correo.com">*@
-                        <label class="form-control form-text" role="textbox"></label>
+                        <input type="text" role="textbox" class="form-control" asp-for="@Model.Cuenta.Correo" readonly>
+                        @*<label class="form-control form-text" role="textbox"></label>*@
                     </div>
                 </div>
             </li>
@@ -68,26 +70,27 @@
 {
     @foreach (var item in Model.Ninios.Ninios)
     {
+        var foto = $"/Images/{(string.IsNullOrEmpty(item.Foto) ? "notfound.jpg" : item.Foto)}";
         <div class="d-flex justify-content-end">
 
             <div class="card text-right" style="max-width: 36rem;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="" class="card-img" />
+                        <img src="@foto" class="card-img" asp-append-version="true" style="width:210px;height:240px"/>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre del niño</h5>
+                            <h5 class="card-title">@item.Nom_Comp</h5>
                             <p class="card-text">
                                 <ul>
                                     <li>
-
+                                        <select asp-for="@item.Nacionalidad" asp-items="Html.GetEnumSelectList<M_CHAT.Models.Nacionalidad>()" disabled></select>
                                     </li>
                                     <li>
-
+                                        @item.CURP
                                     </li>
                                     <li>
-
+                                        @item.Genero
                                     </li>
                                 </ul>
                             </p>

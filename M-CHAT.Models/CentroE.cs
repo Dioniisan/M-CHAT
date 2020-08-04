@@ -18,7 +18,7 @@ namespace M_CHAT.Models
         [Required(ErrorMessage = "Debe proporcionar una clave del centro educativo")]
         public string Direccion { get; set; }
 
-        [Display(Name = "Clave del Centro Educativo", Prompt = "")]
+        [Display(Name = "Clave del Centro Educativo", Prompt = "0AFC123")]
         [Required(ErrorMessage ="Clave requerida.")]
         public string Clave { get; set; }
 

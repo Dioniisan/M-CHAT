@@ -38,7 +38,7 @@ namespace M_CHAT.Models
         [Display(Name = "CentroE")]
         [Required(ErrorMessage = "Informacion requerida en centro educativo.")]
         [ForeignKey("CentroE")]
-        public int? CentroEID { get; set; }
+        public int CentroEID { get; set; }
         public CentroE CentroE { get; set; }
 
         //Navega
