@@ -21,7 +21,40 @@
             Resultado:
         </div>
         <div class="text-justify m-4">
-            """"Aqui se despliegan los resultados"""
+            <table>
+                <tr>
+                    <td>
+                        Pregunta N°
+                    </td>
+                    <td>
+                        Pregunta
+                    </td>
+                    <td>
+                        Tipo
+                    </td>
+                    <td>
+                        Respuesta
+                    </td>
+                </tr>
+                    @*@foreach (var pregunta in)
+                    {
+                        <tr>
+                            <th>
+                                @pregunta.Id
+                            </th>
+                            <th>
+                                @pregunta.PreguntaRealizada
+                            </th>
+                            <th>
+                                @pregunta.Tipo
+                            </th>
+                            <th>
+                                XD
+                            </th>
+                        </tr>
+                    }*@
+
+            </table>
         </div>
     </div>
 </p>
@@ -38,7 +71,12 @@
         
     </div>
 </p>
-<p>
+
+
+@* descartado por ahora
+
+
+    <p>
     <div class="card" style="width: 69.9rem;">
         <div class="card-header">
             Centros de Salud Cercanos:
@@ -50,4 +88,4 @@
             --Cuando sepa usar apis el mapa de verdad irá aqui :'v--
         </div>
     </div>
-</p>
+</p>*@

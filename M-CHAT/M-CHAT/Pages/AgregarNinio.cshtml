@@ -1,0 +1,132 @@
+﻿@page
+@model M_CHAT.Pages.AgregarNinioModel
+@{
+    ViewData["Title"] = "AgregarNinio";
+}
+<form method="post" enctype="multipart/form-data">
+    <div id="Datos2" class="flex-grow-1 p-2">
+        <!--Nav tabs-->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-toggle="tab" href="#datosInfante" role="tab">
+                    Datos del Infante
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-toggle="tab" href="#datosCEdu" role="tab">
+                    Datos del Centro Educativo
+                </a>
+            </li>
+        </ul>
+        <!--TabPanes-->
+        <div class="tab-content">
+            <div id="datosInfante" class="tab-pane fade show active" role="tabpanel" aria-labelledby="datosInfante-tab">
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.Nom_Comp"></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Ninio.Nom_Comp">
+                        <span class="text-danger" asp-validation-for="Ninio.Nom_Comp"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.CURP"></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Ninio.CURP">
+                        <span class="text-danger" asp-validation-for="Ninio.CURP"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ControlInput6" class="col-form-label col-sm-2" asp-for="Ninio.Nacionalidad"></label>
+                    <div class="col-sm-10">
+                        <select asp-for="@Model.Ninio.Nacionalidad" class="form-control col-md-8" asp-items="Html.GetEnumSelectList<M_CHAT.Models.Nacionalidad>()"></select>
+                        <span class="text-danger" asp-validation-for="Ninio.Nacionalidad"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.Fecha_nac"></label>
+                    <div class="col-sm-10">
+                        <input type="date" data-role="" class="form-control" asp-for="Ninio.Fecha_nac">
+                        <span class="text-danger" asp-validation-for="Ninio.Fecha_nac"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.Genero"></label>
+                    <div class="col-sm-10">
+                        <div class="form-check-inline">
+                            <input type="radio" asp-for="Ninio.Genero" value="Hombre">
+                            <label asp-for="Ninio.Genero"> Hombre</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" asp-for="Ninio.Genero" value="Mujer">
+                            <label asp-for="Ninio.Genero"> Mujer</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" asp-for="Ninio.Genero" value="Otro">
+                            <label asp-for="Ninio.Genero"> Otro</label>
+                        </div>
+                        <span class="text-danger" asp-validation-for="Ninio.Genero"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <input hidden asp-for="Ninio.Foto" />
+
+                    <label class="col-form-label col-sm-2" asp-for="Ninio.Foto"></label>
+                    <div class="col-sm-10">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input form-control" asp-for="FotoNinio" lang="es">
+                                <label class="custom-file-label" for="FotoNinio">Elija una imagen desde su equipo.</label>
+                            </div>
+                            <span class="text-danger" asp-validation-for="Ninio.Foto"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="datosCEdu" class="tab-pane fade" role="tabpanel" aria-labelledby="datosCEdu-tab">
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="CentroE.Clave"></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="CentroE.Clave">
+                        <span class="text-danger" asp-validation-for="CentroE.Clave"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="CentroE.Nombre"></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="CentroE.Nombre">
+                        <span class="text-danger" asp-validation-for="CentroE.Nombre"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-sm-2" asp-for="CentroE.Direccion"></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="CentroE.Direccion">
+                        <span class="text-danger" asp-validation-for="CentroE.Direccion"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input hidden asp-for="@Model.Ninio.TutorID" />
+    <span asp-validation-for="Ninio.TutorID" class="text-danger"></span>
+    <input hidden asp-for="@Model.Ninio.Id" />
+    <input hidden asp-for="@Model.CentroE.Id" />
+    <input hidden asp-for="@Model.Cuenta.Id" />
+
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success m-1">Registrar este niño</button>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}
+

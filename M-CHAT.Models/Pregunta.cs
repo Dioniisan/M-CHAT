@@ -17,5 +17,7 @@ namespace M_CHAT.Models
         [ForeignKey("Plantilla")]
         public int PlantillaId { get; set; }
         public Plantilla Plantilla { get; set; }
+
+
     }
 }

@@ -2,6 +2,7 @@
 @model M_CHAT.Pages.Index1Model
 @{
     ViewData["Title"] = "Detalles de la sesion";
+    int t = (int)ViewData["Tutor"];
 
 }
 
@@ -10,18 +11,11 @@
     Vea la informacion de su usuario como tutor y la de los niños registrados en su cuenta. Seleccione un niño para Comenzar un test o para Ver el resultado.
     Asimismo tambien puede registrar o eliminar un niño desde aqui.
 </p>
-@*<div class="d-flex justify-content-end">
-        <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
-    </div>
-    <div class="d-flex justify-content-end">
-        <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
-    </div>*@
+
 <input hidden asp-for="@Model.Tutor.Id" />
 <input hidden asp-for="@Model.Tutor.CuentaId" />
 <input hidden asp-for="@Model.Cuenta.Id" />
 <input hidden asp-for="@Model.Ninio.Id" />
-
-
 
 <p>
     <div class="card" style="width: 69.9rem;">
@@ -34,7 +28,6 @@
                     <label asp-for="Tutor.Nombre"></label>
                     <div>
                         <input type="text" role="textbox" class="form-control" asp-for="@Model.Tutor.Nombre" readonly>
-                        @*<label asp-for="@Model.Tutor.Nombre" type="text" role="textbox" class="form-control"></label>*@
                     </div>
                 </div>
             </li>
@@ -43,7 +36,6 @@
                     <label asp-for="Tutor.Direccion"></label>
                     <div>
                         <input type="text" role="textbox" class="form-control" asp-for="@Model.Tutor.Direccion" readonly>
-                        @*<label class="form-control form-text" role="textbox">@Model.Tutor.Direccion</label>*@
                     </div>
                 </div>
             </li>
@@ -52,7 +44,6 @@
                     <label for="ControlInput3">Correo Electronico</label>
                     <div>
                         <input type="text" role="textbox" class="form-control" asp-for="@Model.Cuenta.Correo" readonly>
-                        @*<label class="form-control form-text" role="textbox"></label>*@
                     </div>
                 </div>
             </li>
@@ -61,11 +52,10 @@
 </p>
 <br />
 <div class="d-flex justify-content-end">
-    <a asp-page="#" class="btn btn-success m-1">Agregar Niño</a>
+    <a asp-page="/AgregarNinio" asp-route-Id="@t" class="btn btn-success m-1">Agregar Niño</a>
 </div>
 <br />
 
-@*buscar la manera en que la imagen del niño se muestre a la izquierda y la informacion a la derecha. De esta manera ahorramos espacio vertical y mostramos toda la info de un niño a la vez*@
 @if (Model.Ninios.Ninios.Any())
 {
     @foreach (var item in Model.Ninios.Ninios)
@@ -95,9 +85,9 @@
                                 </ul>
                             </p>
                             <div class="d-flex justify-content-end">
-                                <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
+                                <a asp-page="/Test" class="btn btn-success m-1" asp-route-Id="@item.Id" asp-route-Pregunta="1">Comenzar un test</a>
                                 <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
-                                <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
+                                <a asp-page="/ModificarNinio" class="btn btn-danger m-1" asp-route-Id="@item.Id">Modificar Niño</a>
                             </div>
                         </div>
                     </div>
@@ -106,36 +96,5 @@
         </div>
     }
 }
-
-@*<div class="card text-right" style="max-width: 36rem;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="https://images.generated.photos/PnVtJfSlOyThYL5Hn50ciX64AIVzKRZUuYX8pzkblOk/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA0NTA2MjUuanBn.jpg" class="card-img" />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre del niño</h5>
-                    <p class="card-text">
-                        <ul>
-                            <li>
-                                CURP
-                            </li>
-                            <li>
-                                Nacionalidad
-                            </li>
-                            <li>
-                                Genero
-                            </li>
-                        </ul>
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <a asp-page="/Test" class="btn btn-success m-1">Comenzar un test</a>
-                        <a asp-page="/Resultados" class="btn btn-info m-1">Ver el resultado</a>
-                        <a asp-page="#" class="btn btn-danger m-1">Eliminar Niño</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
 
 

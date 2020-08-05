@@ -1,6 +1,10 @@
 ﻿@page
 @model M_CHAT.Pages.TestModel
 @{
+    var mas = Model.pregunta.Id + 1;
+    var menos = Model.pregunta.Id - 1;
+    var guardar = 0;
+    var finalizar = 24;
 }
 
 <h1 class="text-dark">Test</h1>
@@ -15,417 +19,170 @@
     falla en el cuestionario si falla en 2 o más preguntas criticas o si falla 3 preguntas cualesquiera.
 </p>
 
-<div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-<hr />
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="0">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="11"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="12"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="13"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="14"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="15"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="16"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="17"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="18"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="19"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="20"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="21"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="22"></li>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+@*En esta parte seria conveniente utilizar un foreach? seeeeh, definitivamente debo cambiar esto, será mas comodo*@
+
+@foreach (var pregunta in Model.Preguntas)
+{
+    var real = pregunta.Id - 23;
+    var porc = 4.34;
+    var porcc = (porc * real) + "%";
 
 
-    </ol>
 
-    @*En esta parte seria conveniente utilizar un foreach? seeeeh, definitivamente debo cambiar esto, será mas comodo*@
 
-<div class="carousel-inner">
-    <div class="carousel-item active">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250"/>
-            <text class="centered">¿Disfruta su hijo cuando se le balancea o se le hace saltar sobre sus rodillas?</text>
-            <div class="carousel-caption d-none d-md-block">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-success">
-                        <input type="radio" name="opcion" id="opcion1" /> Si
-                    </label>
-                    <label class="btn btn-danger">
-                        <input type="radio" name="opcion" id="opcion2" /> No
-                    </label>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @porcc" aria-valuenow="1" aria-valuemin="5" aria-valuemax="100"></div>
+    </div>
+    <hr />
+
+    @*<img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />*@
+    <input hidden asp-for="Respuesta.NinioId" />
+    <input hidden asp-for="Respuesta.PreguntaId" />
+    <input hidden asp-for="Respuesta.Id" />
+    <input hidden asp-for="pregunta.Id" />
+    <input type="text" role="textbox" class="form-control justify-content-center" asp-for="@pregunta.PreguntaRealizada" readonly>
+    <br />
+    <center>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-success">
+                <input type="radio" name="opcion" id="opcion1" value="0" /> Si
+            </label>
+            <label class="btn btn-danger">
+                <input type="radio" name="opcion" id="opcion2" value="1" /> No
+            </label>
+        </div>
+    </center>
+}
+<form class="mt-3" method="post">
+    <div class="form-group row" style="min-width:1080px">
+        <div class="panel panel-success" style="max-width:270px;">
+            <div class="panel-heading text-center">Preguntas</div>
+            <div class="form-group panel-body">
+                <div class="scrollber">
+
+                    @foreach (var pregunta in Model.Preguntas)
+                    {
+                        <p>
+                            <label class="text-center" style="max-width:247px;">
+                                <input type="submit" hidden class="btn btn-default" asp-for="@Model.x" value="@pregunta.Id" />
+                                Pregunta @pregunta.Id
+                            </label>
+                        </p>
+                    }
                 </div>
             </div>
         </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Muestra interés por otros niños o niñas?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
+        <div style="max-width:800px;margin:5px;">
+            <h1 class="text-center">Cuestionario</h1>
+            <br />
+            <p>Este test consta de 23 preguntas las cuales se responderan con "Si" o "No", siendo que en caso de que la conducta sea poco frecuente(menos de dos ocasiones) responda "No", por el contrario si ha observado que el menor tiene las siguientes conductas con mucha frecuencia responda "Si"</p>
+            <br />
+            <br />
+            <div class="panel panel-success form-group" style="min-height:230px;max-width:810px;">
+                <div class="panel-heading text-center">
+                    Pregunta @Model.pregunta.Id
+                </div>
+                <div class="panel-body">
+                    <blockquote class="blockquote mb-0">
+                        <input hidden asp-for="Respuesta.NinioId" />
+                        <input hidden asp-for="Respuesta.PreguntaId" />
+                        <input hidden asp-for="Respuesta.Id" />
+                        <input hidden asp-for="pregunta.Id" />
+                        @Model.pregunta.PreguntaRealizada
+                        <p />
+
+
+
+                        @if (Model.Respuesta.ValorRespuesta == true)
+                        {
+                            <label>
+                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="true" id="Respuesta1Si" checked />
+                                Si
+                                <apan></apan>
+                            </label>
+                            <br />
+                        }
+                        else
+                        {
+                            <label>
+                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="true" id="Respuesta1Si" />
+                                Si
+                                <apan></apan>
+                            </label>
+                            <br />
+                        }
+                        @if (Model.Respuesta.ValorRespuesta == false)
+                        {
+                            <label>
+                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="false" id="Respuesta1No" checked />
+                                No
+                                <apan></apan>
+                            </label>
+                            <br />
+                        }
+                        else
+                        {
+                            <label>
+                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="false" id="Respuesta1No" />
+                                No
+                                <apan></apan>
+                            </label>
+                            <br />
+                        }
+                    </blockquote>
+                    <div class="row float-right margin" style="display:flex; align-items:end !important;">
+
+                        @if (Model.pregunta.Id <= 1)
+                        {
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
+                                Guardar
+                            </label>
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@mas" />
+                                Siguiente
+                            </label>
+
+                        }
+                        else if (Model.pregunta.Id >= 23)
+                        {
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
+                                Guardar
+                            </label>
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@menos" />
+                                Anterior
+                            </label>
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@finalizar" />
+                                Terminar
+                            </label>
+                        }
+                        else
+                        {
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
+                                Guardar
+                            </label>
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@menos" />
+                                Anterior
+                            </label>
+                            <label class="btn btn-success button margin">
+                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@mas" />
+                                Siguiente
+                            </label>
+                        }
+                    </div>
+                </div>
+
             </div>
+
         </div>
+
     </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Le gusta subirse a las cosas, como sillones, escalones, juegos del parque?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Le gusta que el adulto juegue con él o ella al “cucú-tras” (taparse los ojos y luego descubrirlos; jugar a esconderse y aparecer de repente)?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Alguna vez hace juegos imaginativos, por ejemplo haciendo como si hablara por teléfono, como si estuviera dando de comer a una muñeca, como si estuviera conduciendo un coche o cosas así?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Suele señalar con el dedo para pedir algo?	</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Suele señalar con el dedo para indicar que algo le llama la atención?	</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Puede jugar adecuadamente con piezas o juguetes pequeños (por ejemplo cochecitos, muñequitos o bloques de construcción) sin únicamente chuparlos, agitarlos o tirarlos?	</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Suele traerle objetos para enseñárselos?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Suele mirarle a los ojos durante unos segundos?	</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Le parece demasiado sensible a ruidos poco intensos? (por ejemplo, reacciona tapándose los oídos, etc.)	</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Sonríe al verle a usted o cuando usted le sonríe?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Puede imitar o repetir gestos o acciones que usted hace? (por ejemplo, si usted hace una mueca él o ella también la hace)</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Responde cuando se le llama por su nombre?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">Si usted señala con el dedo un juguete al otro lado de la habitación… ¿Dirige su hijo o hija la mirada hacia ese juguete?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Ha aprendido ya a andar?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">Si usted está mirando algo atentamente, ¿su hijo o hija se pone también a mirarlo?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Hace su hijo o hija movimientos raros con los dedos, por ejemplo, acercándoselos a los ojos?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Intenta que usted preste atención a las actividades que él o ella está haciendo?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Alguna vez ha pensado que su hijo o hija podría tener sordera?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Entiende su hijo o hija lo que la gente dice?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">¿Se queda a veces mirando al vacío o va de un lado al otro sin propósito?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="containerim">
-            <img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />
-            <text class="centered">Si su hijo o hija tiene que enfrentarse a una situación desconocida, ¿le mira primero a usted a la cara para saber cómo reaccionar?</text>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success">
-                    <input type="radio" name="opcion" id="opcion1" /> Si
-                </label>
-                <label class="btn btn-danger">
-                    <input type="radio" name="opcion" id="opcion2" /> No
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-    </a>
-</div>
+
+</form>

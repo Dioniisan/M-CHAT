@@ -9,12 +9,7 @@ namespace M_CHAT.Models
 {
     public class Respuesta : BaseEntity
     {
-        //public string Valor { get; set; }
-
-        ////Referencias
-        /////Ninio
-        /////Cuestionario
-        ///
+  
         public bool? ValorRespuesta { get; set; }
 
         [Required(ErrorMessage = "pregunta a responder requerida")]

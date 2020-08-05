@@ -14,6 +14,7 @@ namespace M_CHAT.Services
         public Tutor GetTutor(int id);
         public Cuenta GetCuenta(int id);
         public Ninio GetNinio(int id);
+        public Respuesta GetRespuesta(int id, int pregunta);
         public IEnumerable<Respuesta> GetRespuestasbyNinio(int id);
         public int InicioSesion(Cuenta cuenta);
     }

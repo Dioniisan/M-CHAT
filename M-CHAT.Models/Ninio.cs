@@ -42,7 +42,6 @@ namespace M_CHAT.Models
         public CentroE CentroE { get; set; }
 
         //Navega
-        ///Respuesta
-
+        public ICollection<Respuesta> Respuestas { get; set; }
     }
 }

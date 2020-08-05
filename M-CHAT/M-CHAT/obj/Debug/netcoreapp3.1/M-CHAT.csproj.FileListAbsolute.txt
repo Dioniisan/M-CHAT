@@ -156,3 +156,5 @@ C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\bin\Debug\netcoreapp3.1\M-CHAT.M
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\bin\Debug\netcoreapp3.1\M-CHAT.Services.dll
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\bin\Debug\netcoreapp3.1\M-CHAT.Services.pdb
 C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\bin\Debug\netcoreapp3.1\M-CHAT.Models.pdb
+C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\ModificarNinio.cshtml.g.cs
+C:\Home\Curso\ASP.NET_Core\M-CHAT\M-CHAT\M-CHAT\obj\Debug\netcoreapp3.1\Razor\Pages\AgregarNinio.cshtml.g.cs

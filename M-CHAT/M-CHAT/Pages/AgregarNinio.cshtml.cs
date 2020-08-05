@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +13,7 @@ using System.IO;
 
 namespace M_CHAT.Pages
 {
-    public class RegistrarseModel : PageModel
+    public class AgregarNinioModel : PageModel
     {
         private readonly IRepository<Tutor> repositorioTutor;
         private readonly IRepository<Ninio> repositorioNinio;
@@ -35,7 +35,7 @@ namespace M_CHAT.Pages
         public int TutorNuevo { get; set; }
         public int cont;
 
-        public RegistrarseModel(IContainerRepository repository, IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE, IRepository<Cuenta> repositorioCuenta, IWebHostEnvironment hostEnvironment)
+        public AgregarNinioModel(IContainerRepository repository, IRepository<Tutor> repositorioTutor, IRepository<Ninio> repositorioNinio, IRepository<CentroE> repositorioCentroE, IRepository<Cuenta> repositorioCuenta, IWebHostEnvironment hostEnvironment)
         {
             this.repositorioTutor = repositorioTutor;
             this.repositorioNinio = repositorioNinio;
@@ -71,7 +71,7 @@ namespace M_CHAT.Pages
             Ninio.CentroE = CentroE;
             NinioNuevo = repositorioNinio.Insert(Ninio);
 
-            
+
             cont = repository.InicioSesion(Cuenta);
             return Redirect("/SesionDetails/?Id=" + cont);
 

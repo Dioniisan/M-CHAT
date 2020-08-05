@@ -9,22 +9,7 @@ namespace M_CHAT.Services
 {
     public class ContainerRepository : /*SQLRepository<Tutor>,*/ IContainerRepository
     {
-        //AppDBContext context;
-        //public ContainerRepository(AppDBContext context)
-        //{
-        //    this.context = context;
-        //}
-        //public ContainerRepository(AppDBContext context) : base(context) { }
-        //public IEnumerable<Tutor> GetTutores()
-        //{
-        //    return context.Set<Tutor>().AsEnumerable();
-        //}
-
-        //public IEnumerable<Ninio> GetNinios()
-        //{
-        //    return context.Set<Ninio>().AsEnumerable();
-        //}
-
+      
         AppDBContext context;
         public ContainerRepository(AppDBContext context)
         {
@@ -51,7 +36,26 @@ namespace M_CHAT.Services
         {
             return context.Ninios.Include(x => x.CentroE).FirstOrDefault(x => x.Id == id);
         }
-
+        
+        public Respuesta GetRespuesta(int ninio, int pregunta)
+        {
+            IEnumerable<Respuesta> respuestas;
+            respuestas = context.Respuestas.AsEnumerable();
+            Respuesta respuesta = new Respuesta();
+            foreach (var item in respuestas)
+            {
+                if (ninio == item.NinioId && pregunta == item.PreguntaId)
+                {
+                    respuesta = item;
+                }
+                else
+                {
+                    respuesta.NinioId = ninio;
+                    respuesta.PreguntaId = pregunta;
+                }
+            }
+            return respuesta;
+        } 
         public int InicioSesion(Cuenta cuenta)
         {
             var tutors = context.Tutores.Include(x => x.Cuenta).ToList();

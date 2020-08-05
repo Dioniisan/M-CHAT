@@ -8,6 +8,5 @@ namespace M_CHAT.Models
     {
         public int Version { get; set; }
 
-        //Navega
     }
 }
