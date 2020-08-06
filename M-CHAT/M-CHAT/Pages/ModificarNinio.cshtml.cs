@@ -38,8 +38,6 @@ namespace M_CHAT.Pages
         }
         public IActionResult OnPost(int id, Ninio Ninio)
         {
-            if (!ModelState.IsValid)
-                return Page();
 
             if (FotoNinio != null)
             {

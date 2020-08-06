@@ -1,10 +1,11 @@
 ﻿@page
 @model M_CHAT.Pages.TestModel
 @{
-    var mas = Model.pregunta.Id + 1;
-    var menos = Model.pregunta.Id - 1;
-    var guardar = 0;
-    var finalizar = 24;
+    var sig = Model.pregunta.Id + 1;
+    var ant = Model.pregunta.Id - 1;
+    var real = Model.pregunta.Id - 23;
+    var porc = 4.34;
+    var porcc = (porc * real) + "%";
 }
 
 <h1 class="text-dark">Test</h1>
@@ -19,16 +20,18 @@
     falla en el cuestionario si falla en 2 o más preguntas criticas o si falla 3 preguntas cualesquiera.
 </p>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-@*En esta parte seria conveniente utilizar un foreach? seeeeh, definitivamente debo cambiar esto, será mas comodo*@
-
-@foreach (var pregunta in Model.Preguntas)
-{
-    var real = pregunta.Id - 23;
-    var porc = 4.34;
-    var porcc = (porc * real) + "%";
-
+<form method="post">
+    <center>
+        <div class="btn-group">
+            <label class="btn btn-success button">
+                <input type="submit" class="btn btn-success m-1" asp-for="@Model.x" value="@ant" hidden />Anterior
+            </label>
+            <label class="btn btn-success button">
+                <input type="submit" class="btn btn-success m-1" asp-for="@Model.x" value="@sig" hidden />Siguiente
+            </label>
+        </div>
+    </center>
 
 
 
@@ -37,152 +40,48 @@
     </div>
     <hr />
 
-    @*<img src="http://significadodeloscolores.info/wp-content/uploads/2015/06/color-gris.jpg" width="1050" height="250" />*@
     <input hidden asp-for="Respuesta.NinioId" />
     <input hidden asp-for="Respuesta.PreguntaId" />
     <input hidden asp-for="Respuesta.Id" />
     <input hidden asp-for="pregunta.Id" />
-    <input type="text" role="textbox" class="form-control justify-content-center" asp-for="@pregunta.PreguntaRealizada" readonly>
+
+    <li>@Model.pregunta.PreguntaRealizada</li>
     <br />
-    <center>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-success">
-                <input type="radio" name="opcion" id="opcion1" value="0" /> Si
-            </label>
-            <label class="btn btn-danger">
-                <input type="radio" name="opcion" id="opcion2" value="1" /> No
-            </label>
-        </div>
-    </center>
-}
-<form class="mt-3" method="post">
-    <div class="form-group row" style="min-width:1080px">
-        <div class="panel panel-success" style="max-width:270px;">
-            <div class="panel-heading text-center">Preguntas</div>
-            <div class="form-group panel-body">
-                <div class="scrollber">
 
-                    @foreach (var pregunta in Model.Preguntas)
-                    {
-                        <p>
-                            <label class="text-center" style="max-width:247px;">
-                                <input type="submit" hidden class="btn btn-default" asp-for="@Model.x" value="@pregunta.Id" />
-                                Pregunta @pregunta.Id
-                            </label>
-                        </p>
-                    }
-                </div>
+    @if (Model.Respuesta.ValorRespuesta == true)
+    {
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input id="Si" type="radio" asp-for="Respuesta.ValorRespuesta" value="true" checked /> Si
+                </label>
             </div>
-        </div>
-        <div style="max-width:800px;margin:5px;">
-            <h1 class="text-center">Cuestionario</h1>
-            <br />
-            <p>Este test consta de 23 preguntas las cuales se responderan con "Si" o "No", siendo que en caso de que la conducta sea poco frecuente(menos de dos ocasiones) responda "No", por el contrario si ha observado que el menor tiene las siguientes conductas con mucha frecuencia responda "Si"</p>
-            <br />
-            <br />
-            <div class="panel panel-success form-group" style="min-height:230px;max-width:810px;">
-                <div class="panel-heading text-center">
-                    Pregunta @Model.pregunta.Id
-                </div>
-                <div class="panel-body">
-                    <blockquote class="blockquote mb-0">
-                        <input hidden asp-for="Respuesta.NinioId" />
-                        <input hidden asp-for="Respuesta.PreguntaId" />
-                        <input hidden asp-for="Respuesta.Id" />
-                        <input hidden asp-for="pregunta.Id" />
-                        @Model.pregunta.PreguntaRealizada
-                        <p />
-
-
-
-                        @if (Model.Respuesta.ValorRespuesta == true)
-                        {
-                            <label>
-                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="true" id="Respuesta1Si" checked />
-                                Si
-                                <apan></apan>
-                            </label>
-                            <br />
-                        }
-                        else
-                        {
-                            <label>
-                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="true" id="Respuesta1Si" />
-                                Si
-                                <apan></apan>
-                            </label>
-                            <br />
-                        }
-                        @if (Model.Respuesta.ValorRespuesta == false)
-                        {
-                            <label>
-                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="false" id="Respuesta1No" checked />
-                                No
-                                <apan></apan>
-                            </label>
-                            <br />
-                        }
-                        else
-                        {
-                            <label>
-                                <input type="radio" asp-for="Respuesta.ValorRespuesta" value="false" id="Respuesta1No" />
-                                No
-                                <apan></apan>
-                            </label>
-                            <br />
-                        }
-                    </blockquote>
-                    <div class="row float-right margin" style="display:flex; align-items:end !important;">
-
-                        @if (Model.pregunta.Id <= 1)
-                        {
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
-                                Guardar
-                            </label>
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@mas" />
-                                Siguiente
-                            </label>
-
-                        }
-                        else if (Model.pregunta.Id >= 23)
-                        {
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
-                                Guardar
-                            </label>
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@menos" />
-                                Anterior
-                            </label>
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@finalizar" />
-                                Terminar
-                            </label>
-                        }
-                        else
-                        {
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@guardar" />
-                                Guardar
-                            </label>
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@menos" />
-                                Anterior
-                            </label>
-                            <label class="btn btn-success button margin">
-                                <input type="submit" hidden class="btn btn-success button m-1" asp-for="@Model.x" value="@mas" />
-                                Siguiente
-                            </label>
-                        }
-                    </div>
-                </div>
-
+        <br />
+    }
+    else
+    {
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success">
+                    <input id="Si" type="radio" asp-for="Respuesta.ValorRespuesta" value="true" /> Si
+                </label>
             </div>
-
-        </div>
-
-    </div>
-
+        <br />
+    }
+    @if (Model.Respuesta.ValorRespuesta == false)
+    {
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-danger">
+                    <input id="No" type="radio" asp-for="Respuesta.ValorRespuesta" value="false" checked /> No
+                </label>
+            </div>
+        <br />
+    }
+    else
+    {
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-danger">
+                    <input id="No" type="radio" asp-for="Respuesta.ValorRespuesta" value="false" /> No
+                </label>
+            </div>
+        <br />
+    }
 </form>

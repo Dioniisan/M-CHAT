@@ -11,6 +11,7 @@ namespace M_CHAT.Pages
 {
     public class TestModel : PageModel
     {
+        
         [BindProperty]
         public Respuesta Respuesta { get; set; }
         public readonly IRepository<Pregunta> preguntas;
@@ -25,6 +26,7 @@ namespace M_CHAT.Pages
         public IContainerRepository ContainerRepository;
         public void OnGet(int id, int Pregunta)
         {
+            
             Respuesta = ContainerRepository.GetRespuesta(id, Pregunta);
             Preguntas = preguntas.GetAll();
             pregunta = preguntas.Get(Pregunta);
@@ -52,11 +54,11 @@ namespace M_CHAT.Pages
                 }
             }
             
-            if (x == 0)
+            if (x == 24)
             {
-                return Redirect("/Index");
+                return Page();
             }
-            else if (x == 24)
+            else if (x == 47)
             {
                 return Redirect("/Resultados/?id=" + Respuesta.NinioId);
             }
